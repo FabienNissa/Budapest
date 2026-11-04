@@ -779,7 +779,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <li><span class="t">10h00</span><div class="ttl">Hôpital dans le roc <span class="pill resa">Réserver</span></div><div class="nt">Bunker-hôpital WWII + Guerre froide. Visite guidée datée.</div></li>
         <li><span class="t">11h00</span><div class="ttl">Église Matthias</div><div class="nt">Toit de tuiles Zsolnay, intérieur magnifique.</div></li>
         <li><span class="t">11h30</span><div class="ttl">Bastion des Pêcheurs</div><div class="nt">La plus belle vue sur Pest. Gratuit en bas — on revient ce soir illuminé.</div></li>
-        <li><span class="t">12h15</span><div class="ttl">Pause · Ruszwurm</div><div class="nt">Confiserie historique du Château (~200 ans), strudel & crème.</div></li>
+        <li><span class="t">12h15</span><div class="ttl">Pause · Buda Rétesvár</div><div class="nt">Petite maison de strudels (rétes) cachée au pied du Château : pomme, griotte, pavot. Pas cher.</div></li>
         <li><span class="t">13h00</span><div class="ttl">Déjeuner · Nagyi Palacsintázója</div><div class="nt">Crêpes hongroises salées/sucrées, pas cher. Batthyány tér.</div></li>
         <li><span class="t">14h30</span><div class="ttl">Bains Rudas <span class="pill resa">Réserver</span></div><div class="nt">Bassin sur le toit face au Danube (tarif vendredi).</div></li>
         <li><span class="t">17h00</span><div class="ttl">Retour hôtel · douche</div></li>
@@ -815,6 +815,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   </section>
 
   <section id="manger">
+    <div class="note">✅ <b>Adresses vérifiées (nov. 2026).</b> Rien n'est imposé : ce sont des propositions à choisir ensemble. Note Google + prix (€ à €€€€) sur chaque fiche. <i>Ruszwurm a fermé → remplacé par Buda Rétesvár.</i></div>
     <h2 class="sec">Snacks &amp; déjeuners</h2><p class="sub">Local, très bons avis, abordable.</p><div id="list-snack"></div>
     <div class="note">🏛️ <b>Food courts &amp; marchés authentiques :</b> <b>Street Food Karaván</b> (food trucks, lángos burger) le soir ; pour du vraiment local, <b>Lehel Market</b> et le petit <b>marché Hold utca</b>, bien moins touristiques que le Time Out.</div>
     <h2 class="sec">Restaurants traditionnels</h2><p class="sub">Vraie cuisine hongroise, plats mijotés.</p><div id="list-resto"></div>
@@ -967,7 +968,7 @@ const P=[
   {n:"Belvárosi Disznótoros",c:"snack",lat:47.4915146,lng:19.0577874,r:4.4,pr:"€",note:"Comptoir de charcuterie chaude (saucisses, cornichons). Debout, cash, très local — culte via A. Bourdain.",day:null},
   {n:"Lehel Market",c:"snack",lat:47.5182679,lng:19.0612324,r:4.2,note:"Marché 100 % local (13e), cantines et friture maison, zéro touristes. L'anti-Time Out.",day:null},
   {n:"Marché Hold utca",c:"snack",lat:47.5049,lng:19.0527,note:"Petite halle Art nouveau près du Parlement : cantines locales (dont Kispiac, Stand25).",day:null},
-  {n:"Ruszwurm",c:"snack",lat:47.5012276,lng:19.0330045,r:4.2,pr:"€€",note:"Confiserie historique du Château (~200 ans). Strudel & crème.",day:"ven",o:4},
+  {n:"Buda Rétesvár (strudel)",c:"snack",lat:47.5006946,lng:19.0336484,r:4.6,pr:"€",note:"Minuscule maison de strudels (rétes) cachée au pied du Château : pomme, griotte, pavot. Local, pas cher, délicieux.",day:"ven",o:4},
   {n:"Nagyi Palacsintázója",c:"snack",lat:47.5063438,lng:19.0379353,r:4.0,pr:"€",note:"Crêpes hongroises 24h, Batthyány tér (Buda).",day:"ven",o:5},
   {n:"Kádár Étkezde",c:"snack",lat:47.4996463,lng:19.0647985,r:4.4,pr:"€€",note:"Cantine rétro, cuisine maison, très locale. Midi, cash.",day:null},
   {n:"Kisharang Étkezde",c:"snack",lat:47.5016717,lng:19.0508857,r:4.5,pr:"€€",note:"Minuscule cantine près de la Basilique. Pas chère, peu touristique.",day:null},
@@ -981,10 +982,14 @@ const P=[
   {n:"Menza",c:"resto",lat:47.5039639,lng:19.0628165,r:4.5,pr:"€€",note:"Bistrot rétro chic, Liszt Ferenc tér.",day:null},
   {n:"Két Szerecsen",c:"resto",lat:47.5028236,lng:19.0609448,r:4.6,pr:"€€",note:"Bistrot franco-hongrois animé, près de l'Opéra.",day:null},
   {n:"Kiskakukk",c:"resto",lat:47.5152935,lng:19.049213,r:4.3,pr:"€€€",note:"Institution classique à l'ancienne (13e), gibier & oie, moins touristique. Un cran plus chic.",day:null},
+  {n:"Pozsonyi Kisvendéglő",c:"resto",lat:47.5160467,lng:19.0497905,r:4.2,pr:"€€",note:"Vraie taverne de quartier (13e, Újlipótváros) : goulash, schnitzel, portions énormes, zéro touristes. Un vrai repaire local.",day:null},
   {n:"Mazel Tov",c:"resto",lat:47.5002778,lng:19.0655242,r:4.6,atyp:1,note:"Resto moyen-oriental + ruin bar dans une cour vitrée. Dîner + ambiance, idéal date.",day:null},
   {n:"Time Out Market",c:"resto",lat:47.4963412,lng:19.068943,r:4.5,pr:"€€",atyp:1,note:"Halle gourmande, stands hongrois, sans résa. Parfait le soir d'arrivée.",day:"jeu",o:3},
   {n:"Kispiac Bisztró",c:"resto",lat:47.5047403,lng:19.0526027,r:4.4,pr:"€€€",atyp:1,note:"Minuscule bistrot rétro près du marché Hold utca : hongrois créatif. Fermé dim/lun.",day:null},
   {n:"Stand25 Bisztró",c:"resto",lat:47.4977391,lng:19.03276,r:4.5,pr:"€€€",atyp:1,note:"Bistrot primé (Bib Gourmand) côté Buda : cuisine hongroise revisitée sans chichi.",day:null},
+  {n:"Hoppá! Bistro",c:"resto",lat:47.5014481,lng:19.0511443,r:4.6,pr:"€€€",atyp:1,note:"Classiques hongrois revisités avec finesse, petite carte pointue. Près du marché Hold utca.",day:null},
+  {n:"Dobrumba",c:"resto",lat:47.4969053,lng:19.0599519,r:4.5,pr:"€€",atyp:1,note:"Mezze moyen-orientaux/arméniens, ambiance bohème, plats à partager. En plein quartier juif, près des bars.",day:null},
+  {n:"Déryné Bisztró",c:"resto",lat:47.4972401,lng:19.0316416,r:4.6,pr:"€€€€",atyp:1,note:"Bistrot chic côté Buda (Krisztina), piano live : l'écrin romantique du séjour. Plutôt haut de gamme, à réserver.",day:null},
   {n:"Szimpla Kert",c:"bar",lat:47.4970568,lng:19.0630076,ruin:1,note:"Le ruin bar originel, décor incroyable. Allez-y tôt.",day:"sam",o:8},
   {n:"Gozsdu Udvar",c:"bar",lat:47.498467,lng:19.0594862,r:4.4,ruin:1,note:"Passage couvert de bars/restos : dîner puis bar-hop sans marcher.",day:"sam",o:9},
   {n:"Instant-Fogas",c:"bar",lat:47.5005187,lng:19.0652834,r:4.3,ruin:1,note:"Le plus grand (18 bars, 7 pistes). Pour danser jusqu'au matin.",day:null},
