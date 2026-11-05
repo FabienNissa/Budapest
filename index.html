@@ -755,6 +755,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   <button data-t="manger"><span class="i">🍽️</span>Manger</button>
   <button data-t="sortir"><span class="i">🍸</span>Sortir</button>
   <button data-t="parler"><span class="i">🗣️</span>Parler</button>
+  <button data-t="insolite"><span class="i">✨</span>Insolite</button>
   <button data-t="infos"><span class="i">ℹ️</span>Infos</button>
 </nav>
 <main>
@@ -869,6 +870,15 @@ svg.leaflet-image-layer.leaflet-interactive path {
     </div>
   </section>
 
+  <section id="insolite">
+    <div class="note">✨ <b>Hors des sentiers battus</b> — à piocher selon l'envie, la météo et le temps libre. Toutes ces adresses sont sur la carte (pastille verte « Insolite »).</div>
+    <h2 class="sec">À glisser dans le séjour</h2>
+    <div id="list-insolite"></div>
+    <h2 class="sec">Excursion (si demi-journée libre)</h2>
+    <div class="card"><h3>Libegő + Train des enfants (collines de Buda)</h3><div class="meta"><span class="star">★ 4.7</span></div><p>Télésiège ouvert jusqu'à la colline János, puis le <b>Train des enfants</b> (conduit par des enfants) et la crémaillère : la boucle nature classique au-dessus des arbres. Loin du centre, ouvert 10h–15h30, comptez une demi-journée. Pour les amoureux de nature — en novembre, couvrez-vous bien.</p><a class="gmaps" href="https://www.google.com/search?q=Zugligeti%20Libeg%C5%91%20Budapest" target="_blank" rel="noopener">🔎 Google</a></div>
+    <div class="note">🙅 <b>À zapper en novembre :</b> Népsziget (l'île guinguette au nord) — magique l'été, mais déserte et froide hors saison. Le Pop-Art Toilet Museum (rue Váci) est surtout un piège à touristes.</div>
+  </section>
+
   <section id="infos">
     <h2 class="sec">✈️ Vos vols · Wizz Air</h2>
     <div class="card flight">
@@ -944,10 +954,19 @@ svg.leaflet-image-layer.leaflet-interactive path {
 const CATS={monument:{label:"Monuments",color:"#2563EB"},musee:{label:"Musée",color:"#7C3AED"},
   thermes:{label:"Thermes",color:"#0E9488"},croisiere:{label:"Croisière",color:"#0891B2"},
   snack:{label:"Snacks/déj",color:"#E0912A"},resto:{label:"Restos",color:"#C1272D"},
-  bar:{label:"Bars",color:"#DB2777"},hotel:{label:"Hôtel",color:"#5B6470"},transport:{label:"Transport",color:"#475569"}};
+  bar:{label:"Bars",color:"#DB2777"},hotel:{label:"Hôtel",color:"#5B6470"},transport:{label:"Transport",color:"#475569"},insolite:{label:"Insolite",color:"#16A34A"}};
 const P=[
   {n:"Three Corners Lifestyle Hotel",c:"hotel",lat:47.484941,lng:19.0671804,r:4.8,pr:"€€",note:"Votre base. M3 Corvin-negyed.",day:"base",days:{jeu:2,dim:1}},
   {n:"Aéroport BUD (Liszt Ferenc)",c:"transport",lat:47.436935,lng:19.255592,note:"Terminal 2, ~22 km. Taxi/Bolt ~30 min ou bus 100E → Kálvin tér. Jeu : arrivée 18h25 (W6 2264). Dim : départ 13h50 (W6 2263).",days:{jeu:1,dim:2}},
+  {n:"Statues Kolodko (pont de la Liberté)",c:"insolite",lat:47.4862824,lng:19.0557602,r:4.9,note:"Mini-sculptures en bronze cachées dans la ville (Mihály Kolodko). Celle-ci — Franz Joseph dans un hamac — est sur le pont de la Liberté, pile sur votre balade du dimanche. Chasse au trésor gratuite.",day:null},
+  {n:"Cours cachées du 7e (Kertész u.)",c:"insolite",lat:47.4985,lng:19.068,note:"Poussez les portes cochères entrouvertes autour de Kertész utca : cours à galeries du XIXe, silencieuses, couvertes de lierre. Gratuit, en flânant dans le quartier juif.",day:null},
+  {n:"Bibliothèque Szabó Ervin",c:"insolite",lat:47.4893551,lng:19.0644371,r:4.6,note:"Palais Wenckheim devenu bibliothèque : salles de lecture néo-baroques somptueuses. À ~10 min de l'hôtel (8e), entrée modique. Beau refuge par temps frais.",day:null},
+  {n:"Jardin botanique Füvészkert",c:"insolite",lat:47.4838617,lng:19.0852632,r:4.6,note:"Plus ancien jardin botanique du pays (8e) : serres victoriennes tropicales, très peu de touristes. Ouvert 9h-17h. Idéal par temps frais, près de l'hôtel.",day:null},
+  {n:"Tombeau de Gül Baba",c:"insolite",lat:47.5159689,lng:19.0349263,r:4.8,note:"Mausolée ottoman + roseraie, café et vue : havre de paix sur Rózsadomb (Buda). Gratuit. Fermé lundi. À combiner avec la journée Vendredi (côté Buda).",day:null},
+  {n:"Musée du Flipper (Pinball)",c:"insolite",lat:47.5146449,lng:19.0544052,r:4.9,note:"140+ flippers jouables à volonté (~14€), noté 4,9 ! Ludique, parfait en couple, à l'abri. Mer-dim, après-midi/soir. Côté 13e.",day:null},
+  {n:"Grande Roue (Budapest Eye)",c:"insolite",lat:47.4981503,lng:19.0520441,r:4.5,note:"Grande roue en plein centre (Erzsébet tér), jolie vue de nuit, ~12€, 10 min. Option romantique facile à caser un soir.",day:null},
+  {n:"McDonald's de Nyugati",c:"insolite",lat:47.5099173,lng:19.0572635,r:4.1,note:"Le « plus beau McDo du monde », dans l'ancienne gare du XIXe (Grand Boulevard). À voir 5 min en passant ; projections/DJ le week-end.",day:null},
+  {n:"Traditional Goulash & Lángos Bar (Bonnie)",c:"snack",lat:47.4921619,lng:19.0565486,r:4.7,pr:"€€",note:"Cantine rétro près de Ferenciek tere (à côté de Cinema Mystica) : goulash et lángos généreux, accueil adorable (4,7/23k avis). Emplacement touristique mais vraiment bien fait.",day:null},
   {n:"Bastion des Pêcheurs",c:"monument",lat:47.5021827,lng:19.0347813,r:4.8,note:"La plus belle vue sur Pest. Gratuit en bas ; superbe illuminé le soir.",day:"ven",o:3},
   {n:"Église Matthias",c:"monument",lat:47.5019537,lng:19.0341617,r:4.8,note:"Toit de tuiles Zsolnay, intérieur néo-gothique.",day:"ven",o:2},
   {n:"Parlement",c:"monument",lat:47.507121,lng:19.045669,r:4.8,resa:1,note:"Visite guidée datée — réserver sur jegymester.hu.",day:"sam",o:3},
@@ -1018,6 +1037,7 @@ const F=(id,a)=>document.getElementById(id).innerHTML=a.map(cardHTML).join("");
 F('list-snack',P.filter(p=>p.c==='snack'));F('list-resto',P.filter(p=>p.c==='resto'&&!p.atyp));
 F('list-atypique',P.filter(p=>p.atyp));F('list-ruin',P.filter(p=>p.ruin));
 F('list-speak',P.filter(p=>p.speak));F('list-baths',P.filter(p=>p.c==='thermes'&&p.n!=='Bains Rudas'));
+F('list-insolite',P.filter(p=>p.c==='insolite'));
 
 /* ---- real street map (Leaflet + CARTO tiles) ---- */
 function pin(color,num){
