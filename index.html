@@ -822,6 +822,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
     <div class="note">✅ <b>Adresses vérifiées (nov. 2026).</b> Rien n'est imposé : ce sont des propositions à choisir ensemble. Note Google + prix (€ à €€€€) sur chaque fiche. <i>Ruszwurm a fermé → remplacé par Buda Rétesvár.</i></div>
     <h2 class="sec">Snacks &amp; déjeuners</h2><p class="sub">Local, très bons avis, abordable.</p><div id="list-snack"></div>
     <div class="note">🏛️ <b>Food courts &amp; marchés authentiques :</b> <b>Street Food Karaván</b> (food trucks, lángos burger) le soir ; pour du vraiment local, <b>Lehel Market</b> et le petit <b>marché Hold utca</b>, bien moins touristiques que le Time Out.</div>
+    <div class="note">⏰ <b>Cantines (étkezde) = midi en semaine.</b> <b>Öcsi Étkezde</b> (8e) est un bijou mais n'ouvre que le midi <b>lundi→jeudi</b> — donc hors de vos créneaux (Jeu soir→Dim). Pour la même ambiance « grand-mère hongroise », <b>Kisharang</b> et <b>Kádár</b> (ci-dessus) sont ouvertes tous les jours.</div>
     <h2 class="sec">Restaurants traditionnels</h2><p class="sub">Vraie cuisine hongroise, plats mijotés.</p><div id="list-resto"></div>
     <h2 class="sec">Atypique / 2-en-1</h2><p class="sub">Un peu insolite, ou resto + ambiance au même endroit.</p><div id="list-atypique"></div>
   </section>
@@ -829,6 +830,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   <section id="sortir">
     <h2 class="sec">Ruin bars</h2><p class="sub">L'âme de la nuit à Budapest.</p><div id="list-ruin"></div>
     <h2 class="sec">Speakeasies</h2><p class="sub">Portes anonymes, cocktails pointus.</p><div id="list-speak"></div>
+    <h2 class="sec">Musique live &amp; bars de quartier</h2><p class="sub">Folk, jazz manouche et rades locaux — loin des ruin bars commerciaux.</p><div id="list-live"></div>
     <div class="note">🚶 <b>Depuis l'hôtel</b> : douche/change, puis <b>tram 4/6</b> Corvin-negyed → Blaha Lujza tér, 5 min à pied. Ignorez les « dealers » de rue autour des bars.</div>
   </section>
 
@@ -988,7 +990,7 @@ const P=[
   {n:"Retró Lángos",c:"snack",lat:47.5032271,lng:19.0552202,r:4.6,pr:"€",note:"Le lángos culte, pâte à la pomme de terre bien croustillante.",day:null},
   {n:"Street Food Karaván",c:"snack",lat:47.4971528,lng:19.0630857,r:4.3,pr:"€€",note:"Cour de food trucks (lángos burger, goulash), à côté de Szimpla.",day:null},
   {n:"Belvárosi Disznótoros",c:"snack",lat:47.4915146,lng:19.0577874,r:4.4,pr:"€",note:"Comptoir de charcuterie chaude (saucisses, cornichons). Debout, cash, très local — culte via A. Bourdain.",day:null},
-  {n:"Lehel Market",c:"snack",lat:47.5182679,lng:19.0612324,r:4.2,note:"Marché 100 % local (13e), cantines et friture maison, zéro touristes. L'anti-Time Out.",day:null},
+  {n:"Lehel Market",c:"snack",lat:47.5182679,lng:19.0612324,r:4.2,note:"Marché 100 % local (13e), zéro touristes. À l'étage, cherchez les stands « Sült Hal » : colin/carpe frits sur papier avec cornichons géants — le snack du midi des Hongrois.",day:null},
   {n:"Marché Hold utca",c:"snack",lat:47.5049,lng:19.0527,note:"Petite halle Art nouveau près du Parlement : cantines locales (dont Kispiac, Stand25).",day:null},
   {n:"Buda Rétesvár (strudel)",c:"snack",lat:47.5006946,lng:19.0336484,r:4.6,pr:"€",note:"Minuscule maison de strudels (rétes) cachée au pied du Château : pomme, griotte, pavot. Local, pas cher, délicieux.",day:"ven",o:4},
   {n:"Nagyi Palacsintázója",c:"snack",lat:47.5063438,lng:19.0379353,r:4.0,pr:"€",note:"Crêpes hongroises 24h, Batthyány tér (Buda).",day:"ven",o:5},
@@ -1018,7 +1020,11 @@ const P=[
   {n:"Élesztőház",c:"bar",lat:47.4835732,lng:19.0726474,r:4.5,pr:"€€",ruin:1,note:"Ruin bar bière artisanale, plus local. Côté Buda, proche de l'hôtel !",day:null},
   {n:"Black Swan",c:"bar",lat:47.4991066,lng:19.0651437,r:4.5,speak:1,note:"Le meilleur speakeasy : sonnette + 3 cygnes. Klauzál u. 32. Fermé lundi.",day:"sam",o:10},
   {n:"Boutiq Bar",c:"bar",lat:47.4995713,lng:19.0560719,r:4.7,pr:"€€",speak:1,note:"Pionnier des cocktails, salle cachée. Paulay Ede 5 (mer–sam).",day:null},
-  {n:"HIDE",c:"bar",lat:47.4937539,lng:19.043665,speak:1,note:"Bar souterrain primé 2026, côté Buda. Ybl Miklós tér 9 (jeu–sam). Réserver.",day:null}
+  {n:"HIDE",c:"bar",lat:47.4937539,lng:19.043665,speak:1,note:"Bar souterrain primé 2026, côté Buda. Ybl Miklós tér 9 (jeu–sam). Réserver.",day:null},
+  {n:"Pótkulcs",c:"bar",lat:47.5096278,lng:19.0615806,r:4.3,pr:"€€",live:1,note:"Bar bohème caché derrière une façade couverte de lierre (6e) : repaire d'étudiants et d'artistes, bière pas chère, soirées folk/tzigane en live. Tlj dès 17h.",day:null},
+  {n:"Csendes Létterem",c:"bar",lat:47.4928116,lng:19.0603828,r:4.4,pr:"€€",live:1,note:"Bar vintage poétique près du parc Károlyi (5e), bric-à-brac suspendu au plafond. Idéal pour un fröccs au calme, à deux. Tlj 12h–minuit.",day:null},
+  {n:"Gólya Presszó",c:"bar",lat:47.4874351,lng:19.0928561,r:4.6,live:1,note:"Bar coopératif/communautaire (Józsefváros, 8e) : bières artisanales pas chères, concerts indés, jeux de société, toit-terrasse. Jeune et loin des ruin bars commerciaux. Dès 16h.",day:null},
+  {n:"Fonó Buda Music House",c:"bar",lat:47.4598922,lng:19.0432129,r:4.7,live:1,note:"Le QG de la musique folk (11e, Buda) : concerts des Carpates et Táncház (maisons de la danse) où les locaux dansent en live. Authentique et participatif — vérifiez le programme (jeu/ven/sam). Pas au centre.",day:null}
 ];
 function gmaps(p){return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(p.n+", Budapest");}
 function gsearch(p){return "https://www.google.com/search?q="+encodeURIComponent(p.n+" Budapest");}
@@ -1041,6 +1047,7 @@ F('list-snack',P.filter(p=>p.c==='snack'));F('list-resto',P.filter(p=>p.c==='res
 F('list-atypique',P.filter(p=>p.atyp));F('list-ruin',P.filter(p=>p.ruin));
 F('list-speak',P.filter(p=>p.speak));F('list-baths',P.filter(p=>p.c==='thermes'&&p.n!=='Bains Rudas'));
 F('list-insolite',P.filter(p=>p.c==='insolite'));
+F('list-live',P.filter(p=>p.live));
 
 /* ---- real street map (Leaflet + CARTO tiles) ---- */
 function pin(color,num){
